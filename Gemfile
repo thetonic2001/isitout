@@ -22,6 +22,9 @@ gem 'devise'
 # Added simple form gem
 gem 'simple_form'
 
+#Added font-awesome gem
+gem 'font-awesome-sass'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
