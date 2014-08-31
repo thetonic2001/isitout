@@ -4,16 +4,21 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-validates :profile_name, presence: true,
-						 uniqueness: { case_sensitive: false },
-						 length: { maximum: 50 },
-						 format: {
-						 	with: /\A[a-zA-Z0-9_-]+\Z/,
-						 	message: 'must be formatted correctly.'
-						 }
+	validates :profile_name, presence: true,
+							 uniqueness: { case_sensitive: false },
+							 length: { maximum: 50 },
+							 format: {
+							 	with: /\A[a-zA-Z0-9_-]+\Z/,
+							 	message: 'must be formatted correctly.'
+							 }
 
-                           
-  def full_name
+	def to_param
+		profile_name
+	end
+
+
+	def full_name
 		first_name + " " + last_name
 	end
+
 end
