@@ -1,4 +1,11 @@
 <div class="page-header">
+  
+  <% if @user.avatar? %>
+    <%= image_tag @user.avatar, :class => "img-rounded" %>
+  <% else %>
+  No avatar
+  <% end %>
+
 	<h1><%= @user.full_name %></h1>
 	<p><strong>Age: </strong><%= @user.age %></p>
 	<p><strong>Gender: </strong><%= @user.gender %></p>

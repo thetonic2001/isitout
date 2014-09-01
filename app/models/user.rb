@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  before_validation { avatar.clear if @delete_image }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -11,6 +12,16 @@ class User < ActiveRecord::Base
 							 	with: /\A[a-zA-Z0-9_-]+\Z/,
 							 	message: 'must be formatted correctly.'
 							 }
+
+	has_attached_file :avatar
+
+	def delete_image
+  !!@delete_photo
+end
+
+def delete_image=(value)
+  @delete_image  = !value.to_i.zero?
+end
 
 	def to_param
 		profile_name
