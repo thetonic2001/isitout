@@ -1,7 +1,7 @@
 <div class="page-header">
   
   <% if @user.avatar? %>
-    <%= image_tag @user.avatar, :class => "img-rounded" %>
+    <%= image_tag @user.avatar.url(:small), :class => "img-rounded" %>
   <% else %>
   No avatar
   <% end %>

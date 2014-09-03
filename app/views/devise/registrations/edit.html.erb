@@ -17,6 +17,7 @@
 
   <div><%= f.label :gender %><br />
   <%= f.select :gender, ['Male', 'Female'] %></div>
+ 
 
   <div><%= f.input :facebook %></div>
 
@@ -29,7 +30,7 @@
       <div class="control-group">
         <label class="control-label">Current avatar</label>
         <div class="controls">
-          <%= image_tag f.object.avatar.url %>
+          <%= image_tag f.object.avatar.url(:thumb) %>
         </div>
       </div>
     <% end %>

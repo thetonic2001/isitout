@@ -13,7 +13,10 @@ class User < ActiveRecord::Base
 							 	message: 'must be formatted correctly.'
 							 }
 
-	has_attached_file :avatar
+has_attached_file :avatar, :styles => {
+	large: "800x800", medium: "300x200", spotlight_pic: "320x240!", small: "260x180>", thumb: "80x80>", tiny: "10x10>", :default_url => ('missing.png')
+}
+
 
 	def delete_image
   !!@delete_photo
